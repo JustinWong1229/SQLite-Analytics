@@ -13,3 +13,15 @@ join order_items oi on p.id = oi.product_id
 GROUP BY p.category
 ORDER BY total_revenue DESC;
 
+-- Task 3: Employees Earning Above Their Department Average
+select e.first_name, e.last_name, e.salary, d.name as department_name
+from employees e
+join departments d on e.department_id = d.id
+where e.salary > (
+    select AVG(salary)
+    from employees
+    where department_id = e.department_id
+)
+ORDER BY d.name, e.salary DESC;
+
+-- Task 4: Cities with the Most Loyal Customers
