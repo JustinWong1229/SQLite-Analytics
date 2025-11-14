@@ -7,3 +7,9 @@ ORDER BY total_spent DESC
 Limit 5;
 
 -- Task 2: Total Revenue by Product Category
+select p.category, SUM(oi.quantity * oi.unit_price) as total_revenue
+from products p
+join order_items oi on p.id = oi.product_id
+GROUP BY p.category
+ORDER BY total_revenue DESC;
+
