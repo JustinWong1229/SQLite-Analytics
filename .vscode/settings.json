@@ -6,6 +6,13 @@
             "name": "Coding Challenge- SQLite Analytics",
             "group": "SQLite Analytics",
             "database": "challenge.sql"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "coding challenge sqlite",
+            "group": "sqlite group",
+            "database": "bais_sqlite_lab.db"
         }
     ]
 }
