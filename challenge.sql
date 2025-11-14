@@ -1,10 +1,11 @@
 -- Task 1: Top 5 Customers by Total Spend
 select c.first_name, c.last_name, SUM(oi.quantity * oi.unit_price) as total_spent
 from customers c
-join order_items oi on c.id = oi.id
-GROUP BY c.first_name, c.last_name
-ORDER BY total_spent DESC
-Limit 5;
+join orders o on c.id = o.customer_id
+join order_items oi on o.id = oi.order_id
+group by c.first_name, c.last_name
+order by total_spent DESC
+limit 5;
 
 -- Task 2: Total Revenue by Product Category
 select p.category, SUM(oi.quantity * oi.unit_price) as total_revenue
@@ -25,3 +26,8 @@ where e.salary > (
 ORDER BY d.name, e.salary DESC;
 
 -- Task 4: Cities with the Most Loyal Customers
+select c.city, count(*) as gold_customers
+from customers c
+where c.loyalty_level = 'Gold'
+GROUP BY c.city
+ORDER BY gold_customers DESC
