@@ -1,3 +1,8 @@
+-- Tools used: SQLite
+-- I validated each result by checking that each query returned the expected number of rows
+-- I also spot-checked some of the results to ensure accuracy
+
+
 -- Task 1: Top 5 Customers by Total Spend
 select c.first_name, c.last_name, SUM(oi.quantity * oi.unit_price) as total_spent
 from customers c
