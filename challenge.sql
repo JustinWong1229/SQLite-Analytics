@@ -31,3 +31,5 @@ from customers c
 where c.loyalty_level = 'Gold'
 GROUP BY c.city
 ORDER BY gold_customers DESC
+
+
